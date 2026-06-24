@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+
+    </head>
+    <body>
+        <main>
+            <div class="card">
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+    </body>
+</html>

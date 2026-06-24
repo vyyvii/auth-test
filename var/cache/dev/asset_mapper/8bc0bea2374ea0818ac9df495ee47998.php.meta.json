@@ -1,0 +1,1 @@
+{"resources":[{"@type":"Symfony\\Component\\Config\\Resource\\FileResource","resource":"/app/assets/app.js"},{"@type":"Symfony\\Component\\Config\\Resource\\FileExistenceResource","resource":"/app/assets/bootstrap.js","exists":true},{"@type":"Symfony\\Component\\Config\\Resource\\FileExistenceResource","resource":"/app/assets/styles/app.css","exists":true}]}

@@ -1,0 +1,52 @@
+### Symfony ###
+/var/*
+!/var/cache/
+!/var/log/
+!/var/sessions/
+
+/vendor/
+
+### Environment ###
+.env.local
+.env.*.local
+
+### Composer ###
+/composer.phar
+
+### PHPUnit ###
+.phpunit.cache
+
+### Docker ###
+docker-compose.override.yml
+
+### IDE ###
+.idea/
+.vscode/
+*.swp
+*.swo
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Logs ###
+*.log
+
+### Node / Front ###
+node_modules/
+
+### Symfony Assets ###
+public/bundles/
+
+### Runtime ###
+.php-version
+
+### Cache ###
+.cache/
+
+### Tests ###
+coverage/
+
+### Misc ###
+*.bak
+*.tmp

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1 class="mb-3 font-weight-normal">Accueil</h1>
+
+    {% if app.user %}
+        <p>Vous êtes connecté en tant que {{ app.user.email }}</p>
+
+        <button onclick="window.location.href='{{ path('app_logout') }}'">
+            Déconnexion
+        </button>
+    {% else %}
+        <div class="center-element">
+            <button onclick="window.location.href='{{ path('app_login') }}'">
+                Connexion
+            </button>
+
+            <button onclick="window.location.href='{{ path('app_register') }}'">
+                Inscription
+            </button>
+        </div>
+    {% endif %}
+{% endblock %}

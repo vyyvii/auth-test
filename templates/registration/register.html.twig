@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1 class="mb-3 font-weight-normal">Inscription</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        <ul id="password-rules">
+            <li id="rule-length">❌ Au moins 8 caractères</li>
+            <li id="rule-uppercase">❌ Une majuscule</li>
+            <li id="rule-number">❌ Un chiffre</li>
+            <li id="rule-special">❌ Un caractère spécial</li>
+        </ul>
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const registration_form_plainPassword = document.querySelector(
+                '#registration_form_plainPassword'
+            );
+
+            const rules = {
+                length: document.getElementById('rule-length'),
+                uppercase: document.getElementById('rule-uppercase'),
+                number: document.getElementById('rule-number'),
+                special: document.getElementById('rule-special')
+            };
+
+            registration_form_plainPassword.addEventListener('input', () => {
+
+                const value = registration_form_plainPassword.value;
+
+                updateRule(
+                    rules.length,
+                    value.length >= 8,
+                    'Au moins 8 caractères'
+                );
+
+                updateRule(
+                    rules.uppercase,
+                    /[A-Z]/.test(value),
+                    'Une majuscule'
+                );
+
+                updateRule(
+                    rules.number,
+                    /\d/.test(value),
+                    'Un chiffre'
+                );
+
+                updateRule(
+                    rules.special,
+                    /[^A-Za-z0-9]/.test(value),
+                    'Un caractère spécial'
+                );
+            });
+
+            function updateRule(element, valid, text) {
+                element.textContent =
+                    (valid ? '✅ ' : '❌ ') + text;
+            }
+        });
+    </script>
+{% endblock %}
